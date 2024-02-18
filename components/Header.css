@@ -1,7 +1,9 @@
+.imageLogo {
+  display: flex;
+  justify-content: center;
+  max-height: 100px;
+}
 .header {
-  width: 100%;
-  left: 0;
-  top: 0;
-  position: fixed;
-  background-color: pink;
+  display: flex;
+  justify-content: center;
 }

@@ -4,9 +4,9 @@ import React from "react";
 function Header() {
   return (
     <>
-      <header className="header">
+      <div className="header">
         <img src="./Images/E-boi-logo.png" alt="logo" className="imageLogo" />
-      </header>
+      </div>
     </>
   );
 }
