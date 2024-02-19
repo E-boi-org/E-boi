@@ -7,9 +7,18 @@ function Navbar() {
       <div className="navbar">
         <img src="./Images/E-boi-logo.png" alt="logo" className="imageLogo" />
       </div>
-      <div>
-        <Link to="/">Shop</Link>
-        <Link to="/cart">cart</Link>
+      <div className="options-menu">
+        <div>
+          <Link to="/">Shop</Link>{" "}
+        </div>
+        <div>
+          {" "}
+          <Link to="/cart">cart</Link>{" "}
+        </div>
+        <div>
+          {" "}
+          <Link to="/sell">Sell your Product</Link>
+        </div>
       </div>
     </>
   );

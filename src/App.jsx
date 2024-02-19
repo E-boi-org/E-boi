@@ -3,18 +3,13 @@ import "./App.css";
 import "../components/navbar.css";
 import "../components/Footer.css";
 import "../components/SideBar.css";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Link,
-  useNavigate,
-} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import useApi from "../components/useApi.jsx";
-import Header from "../components/navbar.jsx";
+import Navbar from "../components/navbar.jsx";
 import Footer from "../components/Footer.jsx";
-import Shop from "../components/Shop.jsx";
+import SellProduct from "../components/SellProduct.jsx";
 import ProductDetails from "../components/productDetails.jsx";
+import HomePage from "../components/HomePage.jsx";
 
 function App() {
   const { loading, error } = useApi();
@@ -25,17 +20,14 @@ function App() {
   return (
     <div>
       <div className="App">
-        <Header />
+        <Navbar />
       </div>
-      <div>
-        <Shop />
-      </div>
-      <Footer />
       <Routes>
-        <Route path="/" />
-        <Route path="/cart" />
+        <Route path="/" element={<HomePage />} />
         <Route path="/product/:productId" element={<ProductDetails />} />
+        <Route path="/sell" element={<SellProduct />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

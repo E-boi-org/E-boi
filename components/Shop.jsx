@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import useApi from "./useApi.jsx";
 
 function Shop() {
-  const { data, loading, error, fetchData } = useApi(); // Assuming fetchApi provides refetch function
+  const { data, loading, error, fetchData } = useApi();
   const navigate = useNavigate();
 
   const deleteProduct = async (productId) => {
@@ -15,7 +15,6 @@ function Shop() {
       await fetchData();
     } catch (error) {
       console.error("Error deleting product:", error);
-      // Handle error
     }
   };
 
