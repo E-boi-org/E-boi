@@ -3,3 +3,8 @@
   justify-content: space-around;
   flex-wrap: wrap;
 }
+.product-window {
+  display: flex;
+  width: 650px;
+  height: 550px;
+}
