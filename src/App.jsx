@@ -10,6 +10,7 @@ import SellProduct from "../components/SellProduct.jsx";
 import ProductDetails from "../components/productDetails.jsx";
 import HomePage from "../components/HomePage.jsx";
 import Navbar from "../components/navbar.jsx";
+import Reviews from "../components/Reviews.jsx";
 
 function App() {
   const { loading, error } = useApi();
@@ -26,6 +27,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/product/:productId" element={<ProductDetails />} />
         <Route path="/sell" element={<SellProduct />} />
+        <Route path="/reviews" element={<Reviews />} />
+
       </Routes>
       <Footer />
     </div>
