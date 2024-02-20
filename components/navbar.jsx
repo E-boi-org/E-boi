@@ -1,27 +1,38 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import React from "react";
+import "./navbar.css";
 
-function Navbar() {
+const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <>
+    <nav>
       <div className="navbar">
-        <img src="./Images/E-boi-logo.png" alt="logo" className="imageLogo" />
+        <img src="./Images/E-boi-logo.png" alt="logo" className="image-logo" />
       </div>
-      <div className="options-menu">
-        <div>
-          <Link to="/">Shop</Link>{" "}
-        </div>
-        <div>
-          {" "}
-          <Link to="/cart">cart</Link>{" "}
-        </div>
-        <div>
-          {" "}
+      <div
+        className="menu"
+        onClick={() => {
+          setMenuOpen(!menuOpen);
+        }}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul className={menuOpen ? "open" : ""}>
+        <li>
+          <Link to="/about">Home</Link>
+        </li>
+        <li>
+          <Link to="/services">Services</Link>
+        </li>
+        <li>
           <Link to="/sell">Sell your Product</Link>
-        </div>
-      </div>
-    </>
+        </li>
+      </ul>
+    </nav>
   );
-}
+};
 
 export default Navbar;
