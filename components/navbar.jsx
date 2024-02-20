@@ -19,10 +19,11 @@ const Navbar = () => {
         <span></span>
         <span></span>
         <span></span>
+        <span></span>
       </div>
       <ul className={menuOpen ? "open" : ""}>
         <li>
-          <Link to="/about">Home</Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
           <Link to="/services">Services</Link>
@@ -30,6 +31,7 @@ const Navbar = () => {
         <li>
           <Link to="/sell">Sell your Product</Link>
         </li>
+        <li>Categories</li>
       </ul>
     </nav>
   );

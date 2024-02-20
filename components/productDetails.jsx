@@ -8,7 +8,7 @@ function ProductDetails() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const [display, setDisplay] = useState(false);
   useEffect(() => {
     const fetchProduct = async () => {
       setLoading(true);
@@ -33,8 +33,17 @@ function ProductDetails() {
 
   return (
     <div>
+      <button
+        onClick={() => {
+          setDisplay(!display);
+        }}
+      >
+        edit
+      </button>
+      {!display ? <p></p> : <EditProduct />}
       <div>
         <h2>{product.name}</h2>
+        <img src={product.image} className="img-details" />
         <p>
           <strong>Description:</strong> {product.description}
         </p>
@@ -45,7 +54,6 @@ function ProductDetails() {
           <strong>Category:</strong> {product.category}
         </p>
       </div>
-      <EditProduct />
     </div>
   );
 }
