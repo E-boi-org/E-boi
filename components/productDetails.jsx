@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import EditProduct from "./EditProduct";
 
 function ProductDetails() {
   const { productId } = useParams();
@@ -32,16 +33,19 @@ function ProductDetails() {
 
   return (
     <div>
-      <h2>{product.name}</h2>
-      <p>
-        <strong>Description:</strong> {product.description}
-      </p>
-      <p>
-        <strong>Price:</strong> ${product.price}
-      </p>
-      <p>
-        <strong>Category:</strong> {product.category}
-      </p>
+      <div>
+        <h2>{product.name}</h2>
+        <p>
+          <strong>Description:</strong> {product.description}
+        </p>
+        <p>
+          <strong>Price:</strong> ${product.price}
+        </p>
+        <p>
+          <strong>Category:</strong> {product.category}
+        </p>
+      </div>
+      <EditProduct />
     </div>
   );
 }
