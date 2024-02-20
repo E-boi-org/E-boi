@@ -1,8 +1,11 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #1a1a1a;
+  color: #c7ae6a;
 }
 .root {
   margin: 0;
   padding: 0;
+  background-color: #1a1a1a;
 }

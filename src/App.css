@@ -5,6 +5,6 @@
 }
 .product-window {
   display: flex;
-  width: 650px;
-  height: 550px;
+  width: 400px;
+  height: 350px;
 }

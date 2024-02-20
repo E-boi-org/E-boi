@@ -31,7 +31,6 @@ const Navbar = () => {
         <li>
           <Link to="/sell">Sell your Product</Link>
         </li>
-        <li>Categories</li>
       </ul>
     </nav>
   );
