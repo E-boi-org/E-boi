@@ -6,6 +6,11 @@ function Shop() {
   const { data, loading, error, fetchData } = useApi();
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (e) => {
+    setCart((currentItems) => [...currentItems, e]);
+  };
 
   const deleteProduct = async (productId) => {
     try {
@@ -13,12 +18,11 @@ function Shop() {
         `https://e-boi-api.adaptable.app/products/${productId}`,
         { method: "DELETE" }
       );
-      await fetchData();
+      fetchData();
     } catch (error) {
       console.error("Error deleting product:", error);
     }
   };
-
   if (loading) return <h1>Loading</h1>;
   if (error) return <div>Error: {error.message}</div>;
 
@@ -34,6 +38,19 @@ function Shop() {
       </form>
       <div className="Shop">
         <h1>Loja que vende bue de cenas</h1>
+        <div>
+          {!cart.length ? (
+            <p>click</p>
+          ) : (
+            cart.map((e) => {
+              return (
+                <div key={e.id}>
+                  <p>{e.name}</p>
+                </div>
+              );
+            })
+          )}
+        </div>
         <div className="product-container">
           {data &&
             data
@@ -42,8 +59,8 @@ function Shop() {
                   ? product
                   : product.name.toLowerCase().includes(search);
               })
-              .map((product, index) => (
-                <div key={index}>
+              .map((product) => (
+                <div key={product.id}>
                   <img
                     src={product.image}
                     alt={product.name}
@@ -55,7 +72,13 @@ function Shop() {
                   <button onClick={() => deleteProduct(product.id)}>
                     Delete
                   </button>
-                  <button>Add to Cart</button>
+                  <button
+                    onClick={() => {
+                      addToCart(product);
+                    }}
+                  >
+                    Add to Cart
+                  </button>
                 </div>
               ))}
         </div>
