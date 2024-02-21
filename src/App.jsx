@@ -20,10 +20,9 @@ function App() {
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <div>
-      <div className="App">
-        <Navbar />
-      </div>
+    <div className="App">
+      <Navbar />
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/product/:productId" element={<ProductDetails />} />

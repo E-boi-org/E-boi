@@ -32,20 +32,51 @@ function Shop() {
 
   return (
     <div>
-      <form>
-        <label>Product</label>
-        <input
-          type="text"
-          placeholder="Your Product here"
-          onChange={(e) => setSearch(e.target.value)}
-        ></input>
-      </form>
-      <div className="Shop">
-        <h1>E-boi</h1>
-        <div>
-          {!cart.length ? (
-            <img src="./images/small-logo-nobg.png" className="cart"></img>
-          ) : (
+      <div className="shop">
+        <div className="div-form">
+          <form>
+            <label>Product</label>
+            <input
+              type="text"
+              placeholder="Your Product here"
+              onChange={(e) => setSearch(e.target.value)}
+            ></input>
+          </form>
+        </div>
+        <div className="product-container">
+          {data &&
+            data
+              .filter((product) => {
+                return search.toLowerCase() === ""
+                  ? product
+                  : product.name.toLowerCase().includes(search);
+              })
+              .map((product) => (
+                <div key={product.id} className="item-container">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="product-window"
+                    onClick={() => navigate(`/product/${product.id}`)}
+                  />{" "}
+                  <div className="item-container-data">
+                    <h2>{product.name}</h2>
+                    <p>{product.price}€</p>
+                  </div>
+                  <button onClick={() => deleteProduct(product.id)}>Buy</button>
+                  <button
+                    onClick={() => {
+                      addToCart(product);
+                    }}
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              ))}
+        </div>
+        <div className="shop-top">
+          <img src="./images/small-logo-nobg.png" className="cart"></img>
+          {cart &&
             cart.map((e) => {
               return (
                 <div key={e.id}>
@@ -59,37 +90,7 @@ function Shop() {
                   </button>
                 </div>
               );
-            })
-          )}
-        </div>
-        <div className="product-container">
-          {data &&
-            data
-              .filter((product) => {
-                return search.toLowerCase() === ""
-                  ? product
-                  : product.name.toLowerCase().includes(search);
-              })
-              .map((product) => (
-                <div key={product.id}>
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="product-window"
-                    onClick={() => navigate(`/product/${product.id}`)}
-                  />
-                  <h2>{product.name}</h2>
-                  <p>{product.price}€</p>
-                  <button onClick={() => deleteProduct(product.id)}>Buy</button>
-                  <button
-                    onClick={() => {
-                      addToCart(product);
-                    }}
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              ))}
+            })}
         </div>
       </div>
     </div>

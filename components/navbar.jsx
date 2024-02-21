@@ -6,9 +6,15 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav>
-      <div className="navbar">
-        <img src="./Images/E-boi-logo.png" alt="logo" className="image-logo" />
+    <nav className="nav-bar">
+      <div className="logo-box">
+        <div className="navbar">
+          <img
+            src="./Images/E-boi-logo.png"
+            alt="logo"
+            className="image-logo"
+          />
+        </div>
       </div>
       <div
         className="menu"

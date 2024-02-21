@@ -32,7 +32,7 @@ function SellProduct() {
 
   return (
     <>
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleFormSubmit} className="sell-form">
         <label>Product</label>
         <input
           type="text"
@@ -88,7 +88,7 @@ function SellProduct() {
             setImage(e.target.value);
           }}
         ></input>
-        <button type="submit"></button>
+        <button type="submit">Sell</button>
       </form>
     </>
   );

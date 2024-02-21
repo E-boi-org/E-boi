@@ -1,18 +1,21 @@
 .image-logo {
   display: flex;
-  justify-content: center;
-  max-height: 100px;
+
+  height: 150px;
 }
+
 .active {
   background-color: blue;
 }
 
-nav {
+.nav-bar {
   display: flex;
   align-items: center;
-  background-color: #1a1a1a;
+  background-color: #c7ae6a8c;
   position: sticky;
   top: 0;
+  justify-content: center;
+  box-shadow: 5px 5px 5px #1a1a1a;
 }
 
 nav .title {

@@ -41,7 +41,7 @@ function ProductDetails() {
         edit
       </button>
       {!display ? <p></p> : <EditProduct />}
-      <div>
+      <div className="product-details">
         <h2>{product.name}</h2>
         <img src={product.image} className="img-details" />
         <p>
