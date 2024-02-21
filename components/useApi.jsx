@@ -11,7 +11,7 @@ function useApi() {
       const response = await axios.get(
         "https://e-boi-api.adaptable.app/products"
       );
-      setData(response.data);
+      setData(response.data.reverse());
       setLoading(false);
     } catch (err) {
       setError(err);

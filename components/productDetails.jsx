@@ -53,6 +53,9 @@ function ProductDetails() {
         <p>
           <strong>Category:</strong> {product.category}
         </p>
+        <p>
+          <strong>Brand:</strong> {product.brand}
+        </p>
       </div>
     </div>
   );

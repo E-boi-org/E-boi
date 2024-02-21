@@ -11,6 +11,10 @@ function Shop() {
   const addToCart = (e) => {
     setCart((currentItems) => [...currentItems, e]);
   };
+  function removeFromCart(e) {
+    const newList = cart.filter((item) => item.id !== e.id);
+    setCart(newList);
+  }
 
   const deleteProduct = async (productId) => {
     try {
@@ -37,15 +41,22 @@ function Shop() {
         ></input>
       </form>
       <div className="Shop">
-        <h1>Loja que vende bue de cenas</h1>
+        <h1>E-boi</h1>
         <div>
           {!cart.length ? (
-            <p>click</p>
+            <img src="./images/small-logo-nobg.png" className="cart"></img>
           ) : (
             cart.map((e) => {
               return (
                 <div key={e.id}>
                   <p>{e.name}</p>
+                  <button
+                    onClick={() => {
+                      removeFromCart(e);
+                    }}
+                  >
+                    Remove From Cart
+                  </button>
                 </div>
               );
             })
@@ -69,9 +80,7 @@ function Shop() {
                   />
                   <h2>{product.name}</h2>
                   <p>{product.price}€</p>
-                  <button onClick={() => deleteProduct(product.id)}>
-                    Delete
-                  </button>
+                  <button onClick={() => deleteProduct(product.id)}>Buy</button>
                   <button
                     onClick={() => {
                       addToCart(product);

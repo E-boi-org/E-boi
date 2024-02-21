@@ -17,7 +17,7 @@ function SellProduct() {
     let newObject = {
       name: name,
       description: description,
-      price: description,
+      price: price,
       category: category,
       brand: brand,
       image: image,
@@ -56,7 +56,7 @@ function SellProduct() {
         <input
           type="number"
           value={price}
-          placeholder="Your Product description here"
+          placeholder="Price"
           onChange={(e) => {
             setPrice(e.target.value);
           }}
@@ -65,7 +65,7 @@ function SellProduct() {
         <input
           type="text"
           value={category}
-          placeholder="Your Product description here"
+          placeholder="category"
           onChange={(e) => {
             setCategory(e.target.value);
           }}
@@ -74,7 +74,7 @@ function SellProduct() {
         <input
           type="text"
           value={brand}
-          placeholder="Your Product description here"
+          placeholder="brand"
           onChange={(e) => {
             setBrand(e.target.value);
           }}
@@ -83,7 +83,7 @@ function SellProduct() {
         <input
           type="text"
           value={image}
-          placeholder="Your Product description here"
+          placeholder="image Url"
           onChange={(e) => {
             setImage(e.target.value);
           }}

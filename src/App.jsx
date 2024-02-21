@@ -11,6 +11,7 @@ import ProductDetails from "../components/productDetails.jsx";
 import HomePage from "../components/HomePage.jsx";
 import Navbar from "../components/navbar.jsx";
 import Reviews from "../components/Reviews.jsx";
+import AboutPage from "../components/AboutPage.jsx";
 
 function App() {
   const { loading, error } = useApi();
@@ -28,7 +29,7 @@ function App() {
         <Route path="/product/:productId" element={<ProductDetails />} />
         <Route path="/sell" element={<SellProduct />} />
         <Route path="/reviews" element={<Reviews />} />
-
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
       <Footer />
     </div>
