@@ -7,6 +7,11 @@ function Shop() {
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [cart, setCart] = useState([]);
+  const getTotalPrice = () => {
+    return cart.reduce((total, currentItem) => {
+      return total + parseFloat(currentItem.price);
+    }, 0);
+  };
 
   const addToCart = (e) => {
     setCart((currentItems) => [...currentItems, e]);
@@ -14,6 +19,9 @@ function Shop() {
   function removeFromCart(e) {
     const newList = cart.filter((item) => item.id !== e.id);
     setCart(newList);
+  }
+  function deleteCart() {
+    setCart([]);
   }
 
   const deleteProduct = async (productId) => {
@@ -38,8 +46,9 @@ function Shop() {
             <label>Product</label>
             <input
               type="text"
-              placeholder="Your Product here"
+              placeholder="Search"
               onChange={(e) => setSearch(e.target.value)}
+              className="input-form"
             ></input>
           </form>
         </div>
@@ -77,20 +86,17 @@ function Shop() {
         <div className="shop-top">
           <img src="./images/small-logo-nobg.png" className="cart"></img>
           {cart &&
-            cart.map((e) => {
-              return (
-                <div key={e.id}>
-                  <p>{e.name}</p>
-                  <button
-                    onClick={() => {
-                      removeFromCart(e);
-                    }}
-                  >
-                    Remove From Cart
-                  </button>
-                </div>
-              );
-            })}
+            cart.map((e) => (
+              <div key={e.id} className="product-cart">
+                <img src={e.image} className="image-cart"></img> {e.price}
+                <p>{e.name}</p>
+                <button onClick={() => removeFromCart(e)}>
+                  Remove From Cart
+                </button>
+              </div>
+            ))}
+          <div className="total-price">Total Price: ${getTotalPrice()}</div>
+          <button onClick={deleteCart}>Buy</button>
         </div>
       </div>
     </div>

@@ -53,7 +53,6 @@ function EditProduct() {
   return (
     <>
       <form onSubmit={handleFormSubmit}>
-        <label>Product</label>
         <input
           type="text"
           value={name}
