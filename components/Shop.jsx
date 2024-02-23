@@ -22,6 +22,7 @@ function Shop() {
   }
   function deleteCart() {
     setCart([]);
+    navigate("/purchasepage");
   }
 
   const deleteProduct = async (productId) => {
